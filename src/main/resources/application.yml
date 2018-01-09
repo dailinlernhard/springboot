@@ -1,0 +1,29 @@
+server:
+  port: 8090
+  address: 0.0.0.0
+  session:
+    timeout: 28800
+
+################################################# 数据库访问配置
+# 主数据源，默认的
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.56.130:3306/shiro?useUnicode=true&characterEncoding=utf8&autoReconnect=true
+    username: root
+    password: tuna
+  druid:
+    initialSize: 2
+    minIdle: 2
+    maxActive: 30
+    WebStatFilter:
+      exclusions: '*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*'
+    StatViewServlet:
+      loginUsername: aexit
+      loginPassword: aexit
+
+mybatis-plus:
+  configuration:
+    mapUnderscoreToCamelCase: true
+

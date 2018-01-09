@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+
+
+    <!--此文件用于从数据库表结构，自动生成model，自动生成基础CURD的mapper代码 mvn mybatis-generator:generate-->
+    <!--<properties resource="./generator/generatorConfig.properties"/>-->
+
+    <!-- 数据库驱动包位置,使用maven的方法，这个就不用了 -->
+    <context id="MYSQLTables" targetRuntime="MyBatis3" defaultModelType="flat">
+
+        <!-- 生成的Java文件的编码 -->
+        <property name="javaFileEncoding" value="UTF-8"/>
+        <!-- 格式化java代码 -->
+        <property name="javaFormatter" value="org.mybatis.generator.api.dom.DefaultJavaFormatter"/>
+        <!-- 格式化XML代码 -->
+        <property name="xmlFormatter" value="org.mybatis.generator.api.dom.DefaultXmlFormatter"/>
+
+        <plugin type="com.xxg.mybatis.plugins.MySQLLimitPlugin"></plugin>
+
+        <commentGenerator>
+            <property name="suppressAllComments" value="true" />
+        </commentGenerator>
+        <!-- 数据库链接URL、用户名、密码 -->
+
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://192.168.56.130:3306/shiro?useUnicode=true&amp;characterEncoding=utf8&amp;autoReconnect=true"
+                        userId="root"
+                        password="tuna">
+
+        </jdbcConnection>
+
+
+        <javaModelGenerator targetPackage="${targetModelPackage}" targetProject="${targetJavaProject}"/>
+
+        <sqlMapGenerator targetPackage="${targetXMLPackage}"  targetProject="${targetXmlProject}"/>
+
+        <javaClientGenerator targetPackage="${targetMapperPackage}" targetProject="${targetJavaProject}" type="XMLMAPPER" />
+        <!-- 指定要生成的表-->
+        <table tableName="SysPermission"/>
+        <table tableName="SysRole"/>
+        <table tableName="UserInfo"/>
+        <table tableName="SysRolePermission"/>
+        <table tableName="SysUserRole"/>
+
+    </context>
+</generatorConfiguration>
