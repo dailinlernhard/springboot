@@ -20,5 +20,5 @@ public interface SysuserroleMapper {
     int updateByExampleSelective(@Param("record") Sysuserrole record, @Param("example") SysuserroleExample example);
 
     int updateByExample(@Param("record") Sysuserrole record, @Param("example") SysuserroleExample example);
-    List<Sysrole> getRoleIdsByUserName(String userName);
+    List<String> getRoleIdsByUserName(String userName);
 }
