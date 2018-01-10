@@ -1,9 +1,15 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>beetl servlet</title>
+    <meta charset="UTF-8">
+    <title>登录页</title>
 </head>
 <body>
-这是${name}的第一个beetl例子
+    <form action="/login" method="post">
+        用户名：<input type="text" name="username"><br>
+        密码：<input type="password" name="password"><br>
+        记住我：<input type="checkbox" name="rememberMe" /><br>
+        <input type="submit" value="提交">
+    </form>
 </body>
-
 </html>
