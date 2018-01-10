@@ -1,5 +1,6 @@
 package com.aixin.mapper;
 
+import com.aixin.model.Sysrole;
 import com.aixin.model.Sysuserrole;
 import com.aixin.model.SysuserroleExample;
 import java.util.List;
@@ -19,4 +20,5 @@ public interface SysuserroleMapper {
     int updateByExampleSelective(@Param("record") Sysuserrole record, @Param("example") SysuserroleExample example);
 
     int updateByExample(@Param("record") Sysuserrole record, @Param("example") SysuserroleExample example);
+    List<Sysrole> getRoleIdsByUserName(String userName);
 }
