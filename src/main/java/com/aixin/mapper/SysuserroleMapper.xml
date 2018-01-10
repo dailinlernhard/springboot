@@ -147,7 +147,7 @@
   </update>
 
   <!--BaseResultMap-->
-  <select id="getRoleIdsByUserName" parameterType="string" resultMap="BaseResultMap">
+  <select id="getRoleIdsByUserName" parameterType="string" resultType="string">
     SELECT s.roleId
     FROM SysUserRole s
     INNER JOIN UserInfo u ON s.uid = u.uid
