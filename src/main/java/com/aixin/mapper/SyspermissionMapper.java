@@ -27,4 +27,6 @@ public interface SyspermissionMapper {
     int updateByPrimaryKeySelective(Syspermission record);
 
     int updateByPrimaryKey(Syspermission record);
+
+    List<String> getPermissonByRoleId(String roleid);
 }
