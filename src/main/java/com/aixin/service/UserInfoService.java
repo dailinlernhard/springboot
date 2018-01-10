@@ -1,11 +1,30 @@
 package com.aixin.service;
 
 
+import com.aixin.mapper.UserinfoMapper;
 import com.aixin.model.Userinfo;
+import com.aixin.model.UserinfoExample;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-public interface UserInfoService {
+import javax.annotation.Resource;
+import java.util.List;
+
+
+@Service
+public class UserInfoService {
     
-    /**通过username查找用户信息;*/
-    public Userinfo findByUsername(String username);
+    @Autowired
+    private UserinfoMapper userinfoMapper;
+
+    public Userinfo findByUsername(String username) {
+       System.out.println("UserInfoServiceImpl.findByUsername()");
+       return userinfoMapper.findByUsername(username);
+    }
+
+   public List<Userinfo> getMembers(){
+       UserinfoExample userinfoExample = new UserinfoExample();
+       return userinfoMapper.selectByExample(userinfoExample);
+   }
     
 }
